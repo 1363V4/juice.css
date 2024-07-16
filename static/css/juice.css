@@ -1,0 +1,254 @@
+:root {
+    --main-bg: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f2a65a);
+    --text-color: #333;
+    --highlight-color: #1b7a71;
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+    20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+@keyframes scale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes typing {
+    0%, 100% { width: 0 }
+    50%, 90% { width: 22ch }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--highlight-color); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--main-bg);
+    background-size: 400% 400%;
+    animation: gradient-shift 5s ease infinite;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: rainbow 5s linear infinite, float 3s ease-in-out infinite;
+    padding-top: 2rem;
+}
+
+h2 {
+    font-size: 2em;
+    overflow: hidden;
+    border-right: .15em solid var(--highlight-color);
+    white-space: nowrap;
+    letter-spacing: .15em;
+    animation: 
+        typing 5s steps(40, end) infinite,
+        blink-caret .75s step-end infinite;
+}
+
+p {
+    background: rgba(255,255,255,0.8);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+p::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: spin 1s linear infinite;
+}
+
+p:hover::before {
+    opacity: 0.2;
+}
+
+a {
+    color: #ff6b6b;
+    text-decoration: none;
+    position: relative;
+    font-size: 1.2em;
+    animation: scale 1s ease-in-out infinite;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+a:hover::after {
+    transform: scaleX(1);
+}
+
+button {
+    background: var(--highlight-color);
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.1) rotate(5deg);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    animation: rainbow 3s linear infinite;
+}
+
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(255,255,255,0.2);
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+}
+
+.reveal-text {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem 0;
+}
+
+.reveal-text::before {
+    content: "Hover to reveal";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+}
+
+.reveal-text:hover::before {
+    opacity: 0;
+}
+
+.reveal-button {
+    background: var(--highlight-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reveal-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background: rgba(255,255,255,0.8);
+    border-radius: 5px;
+}
+
+.reveal-button:focus + .reveal-content {
+    max-height: 500px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.js-fucks {
+    font-style: italic;
+}
+
+.rotate-on-hover:hover {
+    animation: rotate 2s linear infinite;
+}
+
+.scale-on-hover:hover {
+    animation: scale 1s ease-in-out infinite;
+}
+
+.shake-on-hover:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 18px;
+    }
+}

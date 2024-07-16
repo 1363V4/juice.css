@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/juice.css">
+    <title>Juicy As F*ck Website</title>
+</head>
+<body>
+    <div class="flex-center">
+        <h1>This is a Juicy As F*ck Website</h1>
+    </div>
+    <h2>Pure CSS Madness!</h2>
+    <br>
+    <p class="scale-on-hover">You wanted "juice"? Well, you got a whole f*cking smoothie factory, mate.</p>
+    <p class="scale-on-hover">We've got gradients, animations, transitions, and more stuff you don't need but looks cool as f*ck. Just look at it!</p>
+    <p class="scale-on-hover">Here's a <a href="https://www.youtube.com/watch?v=Fy0aCDmgnxg" class="rainbow">juiced as f*ck link</a> that does a fancy underline thing. Ooooh, fancy!</p>
+    
+    <button class="reveal-button">Click for More Bullsh*t</button>
+    <div class="reveal-content">
+        <p>Here's some hidden content that appears when you click the button. It's like a f*cking magic trick, but with CSS!</p>
+    </div>
+    
+    <button class="reveal-button">Another F*cking Secret</button>
+    <div class="reveal-content">
+        <p>Surprise! More hidden sh*t. Bet you didn't see that coming. Or maybe you did, because there's a f*cking button right there.</p>
+    </div>
+    
+    <button class="rotate-on-hover">I Spin, Bitch!</button>
+    <button class="scale-on-hover">I Grow, Motherf*cker!</button>
+    <button class="shake-on-hover">I Shake, Asshole!</button>
+    
+    <div class="flex-center reveal-text">This text is hidden until you hover over it. Isn't that f*cking magical?</div>
+    <p class="scale-on-hover">Responsive? You bet your ass it is. Resize the window and watch the magic happen.</p>
+    <p class="scale-on-hover">Is your browser melting yet? No? Guess what motherf*cker: <strong>there's no JS in this b*tch.</strong></p>
+    <p class="scale-on-hover"><em>But, but, but, I just NEED my gorillon-megabytes sh*tty JS framework :'(</em></p>
+    <p class="scale-on-hover">Go on.</p>
+    <p class="scale-on-hover">But next time, before you rush to Google to type:</p>
+    <p class="js-fucks scale-on-hover"></p>
+    <p class="scale-on-hover">Remember:</p>
+    <p class="scale-on-hover"><strong>It already exists.</strong></p>
+    
+    <div class="marquee">
+        <div class="marquee-content">
+            Yes, 
+            <a href="https://motherfuckingwebsite.com">this is f*cking parody.</a>  
+            You can tell because it's 2024 and we're still using marquees. 
+            What a time to be alive! And it just keeps going and going and going and going and going and going and going...
+        </div>
+    </div>
+    <script>
+        const currentDate = new Date();
+        const currentMonth = currentDate.toLocaleString('en-US', { month: 'long' }).toLowerCase();
+        const currentYear = currentDate.getFullYear();
+        const dateElement = document.querySelector('.js-fucks');
+        dateElement.textContent = `latest styling framework multi-dimensional-hydration-package responsive-fractal-shadow-modular-feng-shui-production quantum-blockchain bleeding-edge metaverse ${currentMonth} ${currentYear} (top) (trending) (new) (updated) (web5) (holographic)`;
+    </script>
+</body>
+</html>

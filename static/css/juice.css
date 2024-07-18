@@ -62,8 +62,13 @@
     100% { background-position: 0% 50%; }
 }
 
+@font-face {
+    font-family: 'Barlow-Black';
+    src: url('../fonts/Barlow-Black.woff2') format('woff');
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Barlow-Black';
     line-height: 1.6;
     color: var(--text-color);
     background: var(--main-bg);
